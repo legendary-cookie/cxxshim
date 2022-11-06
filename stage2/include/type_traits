@@ -157,6 +157,12 @@ inline constexpr bool is_unsigned_v = is_unsigned<T>::value;
 template<typename T>
 struct is_signed : public detail::is_signed<T>::type { };
 
+template<typename _Tp>
+struct is_class : public integral_constant<bool, __is_class(_Tp)> { };
+
+template<typename _Tp>
+inline constexpr bool is_class_v = is_class<_Tp>::value;
+
 template< class T >
 inline constexpr bool is_signed_v = is_signed<T>::value;
 
